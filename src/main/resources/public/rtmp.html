@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hikvision Show-RTMP播放协议</title>
+    <style>
+        #myPlayer{
+            max-width: 1200px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<h2>RTMP LIVE</h2>
+        <!--本地获取静态资源还有问题-->
+<!--    <script src="ezuikit.js"></script>-->
+<script src="https://open.ys7.com/sdk/js/2.0/ezuikit.js"></script>
+
+<video id="myPlayer" controls playsInline webkit-playsinline autoplay>
+    <source src="rtmp://rtmp01open.ys7.com/openlive/8993342d891b4995b75505850608e669.hd" type="rtmp/flv" />
+</video>
+
+<script>
+        var player = new EZuikit.EZUIPlayer('myPlayer');
+    </script>
+</body>
+</html>

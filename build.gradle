@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+}
+
+ext {
+    springbootVersion = '2.2.4.RELEASE'
+    commonLang3Version = '3.9'
+    lombokVersion = '1.18.10'
+    junitVersion = '4.12'
+    httpClientVersion = '4.5.10'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web:${springbootVersion}") {
+        exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    }
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-log4j2', version: "${springbootVersion}"
+
+    // common-lang3
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: "${commonLang3Version}"
+
+    // lombok
+    compile group: 'org.projectlombok', name: 'lombok', version: "${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+    // httpclient
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: "${httpClientVersion}"
+
+    testCompile group: 'junit', name: 'junit', version: "${junitVersion}"
+}
