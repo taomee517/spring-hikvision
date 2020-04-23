@@ -14,7 +14,7 @@ import java.util.Objects;
 @RequestMapping("ctrl")
 public class DirectionController {
 
-    @RequestMapping(value = "start", method = RequestMethod.POST)
+    @RequestMapping(value = "start", method = RequestMethod.POST, consumes="application/json")
     public ResponseEntity<Boolean> ctrlStart(@RequestBody ControlEntity controlEntity){
         try {
             assert Objects.nonNull(controlEntity);
@@ -23,9 +23,9 @@ public class DirectionController {
             assert Objects.nonNull(controlEntity.getDirection());
             String startApi = "https://open.ys7.com/api/lapp/device/ptz/start";
             System.out.println("控制开始");
-//            Map<String,String> ctrlMap = BeanUtil.bean2StrMap(controlEntity);
-//            String result = HttpClientUtil.doPost(startApi,ctrlMap);
-//            System.out.println("控制开始结果：" + result);
+            Map<String,String> ctrlMap = BeanUtil.bean2StrMap(controlEntity);
+            String result = HttpClientUtil.doPost(startApi,ctrlMap);
+            System.out.println("控制开始结果：" + result);
             return ResponseEntity.ok(Boolean.TRUE);
         } catch (Exception e) {
             e.printStackTrace();

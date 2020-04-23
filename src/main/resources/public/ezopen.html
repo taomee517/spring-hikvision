@@ -8,64 +8,111 @@
     <script src="bootstrap/js/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="ezuikit.js"></script>
+    <style>
+        .btn-secondary{
+            height:40px;
+            width:40px;
+            text-align:center;
+            font-size:14px
+        }
+    </style>
 </head>
 <body>
-    <h2>EZOPEN LIVE</h2>
-    <div id="playerWin" style="width: 1200px; height: 800px;"></div>
-    <div class="btn-container">
-        <button id="init">初始化</button>
-        <button id="start">播放</button>
-        <button id="stop">停止</button>
-    </div>
-    <div class="container">
+    <div class="container mr-0" style="margin-left:0px">
+        <div class="row">
+            <div id="playerWin" class="col-lg-11"></div>
+            <div class="col-lg-1">
+                <div class="btn-toolbar btn-group-vertical" style="height: 180px;" role="toolbar">
+                    <div class="btn-group col-md-1">
+                        <button type="button" class="btn btn-secondary ctrl" id="left-up" value="4" hint="左上">
+                            <i class="fas fa-circle"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary ctrl" id="up" value="0" hint="上">
+                            <i class="fas fa-arrow-up"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary ctrl" id="right-up" value="6" hint="右上">
+                            <i class="fas fa-circle"></i>
+                        </button>
+                    </div>
 
-        <div class="btn-toolbar btn-group-vertical" style="height: 180px;" role="toolbar">
-            <div class="btn-group mr-1 col-md-2">
-                <button type="button" class="btn btn-secondary ctrl" id="left-up" value="4" hint="左上">
-                    <i class="fas fa-circle"></i>
-                </button>
-                <button type="button" class="btn btn-secondary ctrl" id="up" value="0" hint="上">
-                    <i class="fas fa-arrow-up"></i>
-                </button>
-                <button type="button" class="btn btn-secondary ctrl" id="right-up" value="6" hint="右上">
-                    <i class="fas fa-circle"></i>
-                </button>
-            </div>
-
-            <div class="btn-group mr-1 col-md-2">
-                <button type="button" class="btn btn-secondary ctrl" id="left" value="2" hint="左">
-                    <i class="fas fa-arrow-left"></i>
-                </button>
-                <button type="button" class="btn btn-secondary" id="capture" value="capture" hint="抓拍">
-                    <i class="fas fa-camera"></i>
-                </button>
-                <button type="button" class="btn btn-secondary ctrl" id="right" value="3" hint="右">
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
+                    <div class="btn-group col-md-1">
+                        <button type="button" class="btn btn-secondary ctrl" id="left" value="2" hint="左">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="capture" value="capture" hint="抓拍">
+                            <i class="fas fa-camera"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary ctrl" id="right" value="3" hint="右">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
 
 
-            <div class="btn-group mr-1 col-md-2">
-                <button type="button" class="btn btn-secondary ctrl" id="left-down" value="5" hint="左下">
-                    <i class="fas fa-circle"></i>
-                </button>
-                <button type="button" class="btn btn-secondary ctrl" id="down" value="1" hint="下">
-                    <i class="fas fa-arrow-down"></i>
-                </button>
-                <button type="button" class="btn btn-secondary ctrl" id="right-down" value="7" hint="右下">
-                    <i class="fas fa-circle"></i>
-                </button>
+                    <div class="btn-group col-md-1">
+                        <button type="button" class="btn btn-secondary ctrl" id="left-down" value="5" hint="左下">
+                            <i class="fas fa-circle"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary ctrl" id="down" value="1" hint="下">
+                            <i class="fas fa-arrow-down"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary ctrl" id="right-down" value="7" hint="右下">
+                            <i class="fas fa-circle"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="btn-toolbar btn-group-vertical" style="height: 180px" role="toolbar">
+                    <div class="btn-group col-md-1">
+                        <button type="button" class="btn btn-secondary ctrl" id="zoom in" value="8" hint="放大">
+                            <i class="fas fa-search-plus"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="start" value="play" hint="播放">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary ctrl" id="zoom out" value="9" hint="缩小">
+                            <i class="fas fa-search-minus"></i>
+                        </button>
+                    </div>
+                    <div class="btn-group col-md-1">
+                        <button type="button" class="btn btn-secondary ctrl" id="local" value="10" hint="近焦距">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="stop" value="stop" hint="停止">
+                            <i class="fas fa-stop"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary ctrl" id="remote" value="11" hint="远焦距">
+                            <i class="fas fa-compress-arrows-alt"></i>
+                        </button>
+                    </div>
+
+                    <div class="btn-group col-md-1">
+                        <button type="button" class="btn btn-secondary" id="record-start" value="record-start" hint="开始录像">
+                            <i class="fas fa-video"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="init" value="init" hint="初始化">
+                            <i class="fas fa-hourglass"></i>
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="record-stop" value="record-stop" hint="结束录像">
+                            <i class="fas fa-stop-circle"></i>
+                        </button>
+                    </div>
+                </div>
+
             </div>
         </div>
-
     </div>
+
     <script>
-        var appKey = "2f9ff1c7bd7f422c9c40ec1b80171277";
-        var secret = "311c0891889036dfda1ceae59851fb51";
-        var accessToken = "at.2ly6ayhtdou0txin8bempq856utsjr59-5fis376vd3-1a43mje-yvetfexg1";
+        var user = "18166590328";
+        var pwd = "Htjc8888";
+        var appKey = "a4816d952af2491f871a6243f74153c4";
+        var secret = "5a5c1ada2f961edf8ee27f318cd4a087";
+        var accessToken = "at.18b8phnz5szz41iu8fbgclob7y7ygvrb-9rhlc1x7ka-09a8dap-xldehqbwl";
         var url = "ezopen://Admin12345@open.ys7.com/D11939279/1.hd.live";
         var deviceSerial = "D11939279";
         var poster = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1587535660229&di=5c49faa5ff16ffcb8e6bcd6d778805d4&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F6%2F57b3c86498dff.jpg";
+
+        var decoder;
 
         function handleError(e){
           console.log('捕获到错误',e)
@@ -75,11 +122,11 @@
           console.log("播放成功回调函数，此处可执行播放成功后续动作");
         }
 
-        var decoder;
-        $("#init").click(function () {
+
+        $(function () {
           decoder = new EZUIKit.EZUIPlayer({
             id: 'playerWin',
-            autoplay: false,
+            autoplay: true,
             url: url,
             accessToken: accessToken,
             decoderPath: '../',
@@ -113,22 +160,22 @@
 
         $(".ctrl").mousedown(function(){
             var data = {
-                "accessToken":accessToken,
-                "deviceSerial":deviceSerial,
-                "channelNo":1,
-                "direction":$(this).attr("value"),
-                "speed":1
-            };
+                        "accessToken":accessToken,
+                        "deviceSerial":deviceSerial,
+                        "channelNo":1,
+                        "direction":$(this).attr("value"),
+                        "speed":1
+                      };
             $.ajax({
                 url: "ctrl/start",
                 type: "POST",
-                data: data,
                 dataType: "json",
+                data: JSON.stringify(data),
                 contentType: "application/json",
                 success: function(result){
                     console.log("ajax请求结果：");
                     console.log(result);
-                    if(result.code == 0){
+                    if(result.status.value == 200){
                         console.log(action + "转操作开始！");
                     }
                 }
@@ -148,16 +195,30 @@
             $.ajax({
                 url: "ctrl/stop",
                 type: "POST",
-                data: data,
+                data: JSON.stringify(data),
                 dataType: "json",
                 contentType: "application/json",
                 success: function(result){
-                    if(result.code == 0){
+                    if(result.status.value == 200){
                         console.log(action + "转操作停止成功！");
                     }
                 }
             });
         }
+
+        $("#capture").click(function(){
+            var captureName = deviceSerial + "-" + new Date().getTime() + ".jpg";
+            var capturePicturePromise = decoder.capturePicture(0,captureName);
+        })
+
+        $("#record-start").click(function(){
+            var videoName = deviceSerial + "-" + new Date().getTime() + ".mp4";
+            decoder.startSave(0,videoName);
+        })
+
+        $("#record-stop").click(function(){
+            decoder.stopSave(0);
+        })
 
 
     </script>
