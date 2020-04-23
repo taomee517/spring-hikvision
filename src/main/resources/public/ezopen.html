@@ -24,38 +24,38 @@
             <div class="col-lg-1">
                 <div class="btn-toolbar btn-group-vertical" style="height: 180px;" role="toolbar">
                     <div class="btn-group col-md-1">
-                        <button type="button" class="btn btn-secondary ctrl" id="left-up" value="4" hint="左上">
+                        <button type="button" class="btn btn-secondary ctrl" id="left-up" value="4" data-toggle="popover" data-content="左上">
                             <i class="fas fa-circle"></i>
                         </button>
-                        <button type="button" class="btn btn-secondary ctrl" id="up" value="0" hint="上">
+                        <button type="button" class="btn btn-secondary ctrl" id="up" value="0" data-toggle="popover" data-content="上">
                             <i class="fas fa-arrow-up"></i>
                         </button>
-                        <button type="button" class="btn btn-secondary ctrl" id="right-up" value="6" hint="右上">
+                        <button type="button" class="btn btn-secondary ctrl" id="right-up" value="6" data-toggle="popover" data-content="右上">
                             <i class="fas fa-circle"></i>
                         </button>
                     </div>
 
                     <div class="btn-group col-md-1">
-                        <button type="button" class="btn btn-secondary ctrl" id="left" value="2" hint="左">
+                        <button type="button" class="btn btn-secondary ctrl" id="left" value="2" data-toggle="popover" data-content="左">
                             <i class="fas fa-arrow-left"></i>
                         </button>
-                        <button type="button" class="btn btn-secondary" id="capture" value="capture" hint="抓拍">
+                        <button type="button" class="btn btn-secondary" id="capture" value="capture" data-toggle="popover" data-content="抓拍">
                             <i class="fas fa-camera"></i>
                         </button>
-                        <button type="button" class="btn btn-secondary ctrl" id="right" value="3" hint="右">
+                        <button type="button" class="btn btn-secondary ctrl" id="right" value="3" data-toggle="popover" data-content="右">
                             <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
 
 
                     <div class="btn-group col-md-1">
-                        <button type="button" class="btn btn-secondary ctrl" id="left-down" value="5" hint="左下">
+                        <button type="button" class="btn btn-secondary ctrl" id="left-down" value="5" data-toggle="popover" data-content="左下">
                             <i class="fas fa-circle"></i>
                         </button>
-                        <button type="button" class="btn btn-secondary ctrl" id="down" value="1" hint="下">
+                        <button type="button" class="btn btn-secondary ctrl" id="down" value="1" data-toggle="popover" data-content="下">
                             <i class="fas fa-arrow-down"></i>
                         </button>
-                        <button type="button" class="btn btn-secondary ctrl" id="right-down" value="7" hint="右下">
+                        <button type="button" class="btn btn-secondary ctrl" id="right-down" value="7" data-toggle="popover" data-content="右下">
                             <i class="fas fa-circle"></i>
                         </button>
                     </div>
@@ -63,36 +63,36 @@
 
                 <div class="btn-toolbar btn-group-vertical" style="height: 180px" role="toolbar">
                     <div class="btn-group col-md-1">
-                        <button type="button" class="btn btn-secondary ctrl" id="zoom in" value="8" hint="放大">
+                        <button type="button" class="btn btn-secondary ctrl" id="zoom in" value="8" data-toggle="popover" data-content="放大">
                             <i class="fas fa-search-plus"></i>
                         </button>
-                        <button type="button" class="btn btn-secondary" id="start" value="play" hint="播放">
+                        <button type="button" class="btn btn-secondary" id="start" value="play" data-toggle="popover" data-content="播放">
                             <i class="fas fa-play"></i>
                         </button>
-                        <button type="button" class="btn btn-secondary ctrl" id="zoom out" value="9" hint="缩小">
+                        <button type="button" class="btn btn-secondary ctrl" id="zoom out" value="9" data-toggle="popover" data-content="缩小">
                             <i class="fas fa-search-minus"></i>
                         </button>
                     </div>
                     <div class="btn-group col-md-1">
-                        <button type="button" class="btn btn-secondary ctrl" id="local" value="10" hint="近焦距">
+                        <button type="button" class="btn btn-secondary ctrl" id="local" value="10" data-toggle="popover" data-content="近焦距">
                             <i class="fas fa-expand-arrows-alt"></i>
                         </button>
-                        <button type="button" class="btn btn-secondary" id="stop" value="stop" hint="停止">
+                        <button type="button" class="btn btn-secondary" id="stop" value="stop" data-toggle="popover" data-content="停止">
                             <i class="fas fa-stop"></i>
                         </button>
-                        <button type="button" class="btn btn-secondary ctrl" id="remote" value="11" hint="远焦距">
+                        <button type="button" class="btn btn-secondary ctrl" id="remote" value="11" data-toggle="popover" data-content="远焦距">
                             <i class="fas fa-compress-arrows-alt"></i>
                         </button>
                     </div>
 
                     <div class="btn-group col-md-1">
-                        <button type="button" class="btn btn-secondary" id="record-start" value="record-start" hint="开始录像">
+                        <button type="button" class="btn btn-secondary" id="record-start" value="record-start" data-toggle="popover" data-content="开始录像">
                             <i class="fas fa-video"></i>
                         </button>
-                        <button type="button" class="btn btn-secondary" id="init" value="init" hint="初始化">
+                        <button type="button" class="btn btn-secondary" id="init" value="init" data-toggle="popover" data-content="初始化">
                             <i class="fas fa-hourglass"></i>
                         </button>
-                        <button type="button" class="btn btn-secondary" id="record-stop" value="record-stop" hint="结束录像">
+                        <button type="button" class="btn btn-secondary" id="record-stop" value="record-stop" data-toggle="popover" data-content="结束录像">
                             <i class="fas fa-stop-circle"></i>
                         </button>
                     </div>
@@ -133,6 +133,9 @@
             width: 1200,
             height: 800,
             splitBasis: 2,
+          });
+          $('[data-toggle="popover"]').popover({
+            trigger: 'hover'
           });
         })
 
@@ -191,7 +194,7 @@
                 "channelNo":1,
                 "direction":$(this).attr("value")
             };
-            var action = $(this).attr("hint");
+            var action = $(this).attr("data-content");
             $.ajax({
                 url: "ctrl/stop",
                 type: "POST",
